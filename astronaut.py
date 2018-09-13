@@ -17,7 +17,7 @@ class astro(pygame.sprite.Sprite):
     def update(self, *args):
         self.rect.y += self.speed_y
         self.rect.x += self.speed_x
-        self.speed_y += 0.2
+        self.speed_y += 0.4
 
         g_floor = args[0]
         g_projec = args[1]
