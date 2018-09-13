@@ -4,6 +4,7 @@ import sys
 import astronaut
 import floor
 import wall
+import hazards
 
 s_width = 800
 s_height = s_width
@@ -25,6 +26,7 @@ g_player.add(astronaut.astro())
 
 #projectiles
 g_projec = pygame.sprite.Group()
+g_projec.add(hazards.hazard())
 
 #Background
 bg = pygame.image.load("background_img.png")
