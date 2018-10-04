@@ -9,6 +9,10 @@ class astro(pygame.sprite.Sprite):
         super().__init__()
         self.image = pygame.image.load("assets/astro0.png")
         self.rect = self.image.get_rect()
+        
+        #score value
+        self.score = 0
+
 
         self.rect.x, self.rect.y = 0, 0
         self.speed_x = 2

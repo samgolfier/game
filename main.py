@@ -27,6 +27,15 @@ wall.LoadWall("wall_p.txt", g_wall, s_height)
 g_player = pygame.sprite.Group()
 g_player.add(astronaut.astro())
 
+
+#Score
+pygame.font.init()
+fontfile = pygame.font.match_font('arial')
+arial = pygame.font.Font(fontfile, 32)
+arial.set_bold(True)
+
+
+
 #projectiles
 g_projec = pygame.sprite.Group()
 g_projec.add(hazards.hazard())
@@ -77,6 +86,8 @@ while True:
     # draw here
 
     #floor.draw(screen)
+
+    screen.blit(arial.render(("Score: %d" % g_player.sprites()[0].score) , False, (255,255,255)), (100, 10))
 
     g_floor.draw(screen)
     g_player.draw(screen)
