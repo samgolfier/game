@@ -6,5 +6,5 @@ class hazard(pygame.sprite.Sprite):
 
         super().__init__()
 
-        self.image = pygame.image.load("assets/pacman-3.png")  #Change this to a different sprite later
+        self.image = pygame.image.load("assets/hazard.png")  #Change this to a different sprite later
         self.rect = self.image.get_rect()
