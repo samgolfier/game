@@ -1,10 +1,13 @@
 import pygame
 import sys
 
+from random import randint
+
 import astronaut
 import floor
 import wall
 import hazards
+import collectables
 
 s_width = 800
 s_height = s_width
@@ -32,9 +35,20 @@ g_projec.add(hazards.hazard())
 bg = pygame.image.load("background_img.png")
 
 
+#Coin
+g_coin = pygame.sprite.Group()
+for i in range(5):
+    g_coin.add(collectables.coin(200,randint(400,600)))
+
 
 pygame.init()
 screen = pygame.display.set_mode((s_width, s_height))
+
+#camera
+level_h = 2*s_height
+level_w = s_width
+
+#camera = Camera(*to_be_implemented*, total_level_width, total_level_height)
 
 clock = pygame.time.Clock()
 
@@ -49,6 +63,13 @@ while True:
     #screen.fill((0,0,0))
 
 
+
+    #camera
+    
+    #camera.update(player)
+    
+
+
     #g.clear(screen, screen.get_rect())
     
 
@@ -60,9 +81,12 @@ while True:
     g_floor.draw(screen)
     g_player.draw(screen)
     g_projec.draw(screen)
+    g_coin.draw(screen)
 
     g_player.update(g_floor, g_projec)
     g_projec.update()
+
+    g_coin.update(g_player)
     #Flips the display buffers
     pygame.display.flip()
 
