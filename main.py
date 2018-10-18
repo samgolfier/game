@@ -8,6 +8,7 @@ import floor
 import wall
 import hazards
 import collectables
+import background_things as bg_stuff
 
 s_width = 800
 s_height = s_width
@@ -49,6 +50,12 @@ bg = pygame.image.load("background_img.png")
 g_coin = pygame.sprite.Group()
 for i in range(5):
     g_coin.add(collectables.coin(200,randint(400,600)))
+
+
+
+#Background_things
+
+g_bg = pygame.sprite.Group()
 
 
 pygame.init()
@@ -103,11 +110,13 @@ while True:
     g_player.draw(screen)
     g_projec.draw(screen)
     g_coin.draw(screen)
+    g_bg.draw(screen)
 
     g_player.update(g_floor, g_projec)
     g_projec.update()
 
     g_coin.update(g_player)
+    g_bg.update()
     #Flips the display buffers
     pygame.display.flip()
 
@@ -115,11 +124,10 @@ while True:
     #Background
     screen.blit(bg, (0, 0))
     
-    #Update sprites
-
-    #floor.update()
-    #floor_x, floor_y = floor.getPos()
-    #astronaut.update(floor_y)
+    n = randint(0,5*30) #15 seconds with 30 frames per second
+    if n == 0:
+        #g_coin.add(collectables.coin(200,randint(400,600)))
+        g_bg.add(bg_stuff.ufo(0, randint(100,500), 5, 0))
 
     #Tells program how many ticks per second
     clock.tick(30)
