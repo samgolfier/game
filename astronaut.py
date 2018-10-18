@@ -36,8 +36,10 @@ class astro(pygame.sprite.Sprite):
         keys = pygame.key.get_pressed()
         if keys[pygame.K_SPACE]:
             g_projec.add(bullet.bullet())
-        elif keys[pygame.K_LEFT] or keys[pygame.K_RIGHT]:
-            self.speed_x = (self.speed_x) * -1
-            time.sleep(0.2)
+        elif keys[pygame.K_LEFT]:
+            self.speed_x = -abs(self.speed_x)
+        elif keys[pygame.K_RIGHT]:
+            self.speed_x = abs(self.speed_x)
+    
 
             
