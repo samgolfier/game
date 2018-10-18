@@ -34,6 +34,7 @@ fontfile = pygame.font.match_font('arial')
 arial = pygame.font.Font(fontfile, 32)
 arial.set_bold(True)
 
+flashtimer = 0
 
 
 #projectiles
@@ -86,8 +87,17 @@ while True:
     # draw here
 
     #floor.draw(screen)
+    if g_player.sprites()[0].collected_coin:
+        flashtimer += 30
+        g_player.sprites()[0].collected_coin = False
 
-    screen.blit(arial.render(("Score: %d" % g_player.sprites()[0].score) , False, (255,255,255)), (100, 10))
+    
+    if flashtimer % 2 == 0:
+        screen.blit(arial.render(("Score: %d" % g_player.sprites()[0].score) , False, (255,255,255)), (100, 10))
+    else:
+        screen.blit(arial.render(("Score: %d" % g_player.sprites()[0].score) , False, (255,0,0)), (100, 10))
+    if flashtimer > 0:
+        flashtimer = flashtimer - 1
 
     g_floor.draw(screen)
     g_player.draw(screen)

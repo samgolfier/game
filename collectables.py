@@ -26,7 +26,7 @@ class coin(coll):
         self.rect.y = y
 
     def oncollision(self, sprite):
-        print('hi')
         sprite.score+= 100
+        sprite.collected_coin = True
         self.kill()
     

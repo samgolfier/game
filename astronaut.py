@@ -13,6 +13,7 @@ class astro(pygame.sprite.Sprite):
         #score value
         self.score = 0
 
+        self.collected_coin = False
 
         self.rect.x, self.rect.y = 0, 0
         self.speed_x = 2
