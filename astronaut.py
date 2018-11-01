@@ -18,6 +18,7 @@ class astro(pygame.sprite.Sprite):
         self.rect.x, self.rect.y = 0, 0
         self.speed_x = 2
         self.speed_y = 0
+        self.hp = 100
 
     def update(self, *args):
         self.rect.y += self.speed_y

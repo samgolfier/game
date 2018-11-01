@@ -20,7 +20,7 @@ class ufo(pygame.sprite.Sprite):
 
     def next_frame(self):
         self.frame += 1
-        self.frame = self.frame % (3*5)
+        self.frame = self.frame % (4*5)
 
         # parent = self.image.get_parent()
         # (x, y) = parent.get_abs_offset()
@@ -30,7 +30,7 @@ class ufo(pygame.sprite.Sprite):
         # x = x % (self.image.get_rect().w)*3
 
         self.image = self.frames.subsurface(pygame.Rect(x,0,32,32))
-        print(x)
+        #print(x)
 
     def update(self):
         self.rect.y += self.speed_y

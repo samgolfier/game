@@ -5,3 +5,5 @@ class bullet(pygame.sprite.Sprite):
         super().__init__()
         self.image =  pygame.image.load("assets/bullet0.png")
         self.rect = self.image.get_rect()
+
+        

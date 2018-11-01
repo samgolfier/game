@@ -40,7 +40,9 @@ flashtimer = 0
 
 #projectiles
 g_projec = pygame.sprite.Group()
-g_projec.add(hazards.hazard())
+g_projec.add(hazards.hazard(50, 50, 0, 0, 3))
+g_projec.add(hazards.hazard(50, 300, 0, 0, -3))
+g_projec.add(hazards.hazard(50, 500, 0, 0, 1))
 
 #Background
 bg = pygame.image.load("background_img.png")
@@ -113,7 +115,7 @@ while True:
     g_bg.draw(screen)
 
     g_player.update(g_floor, g_projec)
-    g_projec.update()
+    g_projec.update(g_player)
 
     g_coin.update(g_player)
     g_bg.update()
@@ -123,8 +125,10 @@ while True:
 
     #Background
     screen.blit(bg, (0, 0))
-    
-    n = randint(0,5*30) #15 seconds with 30 frames per second
+
+
+    #Custom BG
+    n = randint(0,2*30) #15 seconds with 30 frames per second
     if n == 0:
         #g_coin.add(collectables.coin(200,randint(400,600)))
         g_bg.add(bg_stuff.ufo(0, randint(100,500), 5, 0))
