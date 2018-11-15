@@ -1,5 +1,7 @@
 from random import randint
+
 import pygame
+
 import astronaut
 import floor
 import wall
@@ -26,7 +28,6 @@ class Level:
 
 
         #Score
-        pygame.font.init()
         fontfile = pygame.font.match_font('arial')
         self.arial = pygame.font.Font(fontfile, 32)
         self.arial.set_bold(True)
