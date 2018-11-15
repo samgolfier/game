@@ -1,4 +1,5 @@
 import pygame
+import levelone
 
 class Menu:
     def __init__(self, s_width, s_height):
@@ -8,6 +9,10 @@ class Menu:
 
         self.start_bordercol = (50,50,50)
         self.start_rect = None
+
+        self.s_width = s_width
+        self.s_height = s_height
+        
 
     def draw(self, screen):
         (st_width, st_height) = screen.get_size()
@@ -30,9 +35,16 @@ class Menu:
     def update(self):
         (mouse_x, mouse_y) = pygame.mouse.get_pos()
 
+        (mouse_btn, btn2, btn3) = pygame.mouse.get_pressed()
+
         if self.start_rect.collidepoint(mouse_x, mouse_y):
+            if mouse_btn:
+                return levelone.Level(self.s_width, self.s_height)
             self.start_bordercol = (100,100,100)
         else:
             self.start_bordercol = (50,50,50)
+        return self
+
+
 
         

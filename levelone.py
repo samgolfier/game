@@ -57,6 +57,9 @@ class Level:
         self.g_bg = pygame.sprite.Group()
 
     def draw(self, screen):
+        #Background
+        screen.blit(self.bg, (0, 0))
+
         if self.flashtimer % 2 == 0:
             score = self.arial.render(("Score: %d" % self.g_player.sprites()[0].score) , False, (255,255,255))
         else:
@@ -78,13 +81,6 @@ class Level:
         self.g_coin.draw(screen)
         self.g_bg.draw(screen)
         
-        #Flips the display buffers
-        pygame.display.flip()
-
-
-        #Background
-        screen.blit(self.bg, (0, 0))
-        
     def update(self):
         if self.g_player.sprites()[0].collected_coin:
             self.flashtimer += 30
@@ -105,3 +101,5 @@ class Level:
         if n == 0:
             #self.g_coin.add(collectables.coin(200,randint(400,600)))
             self.g_bg.add(bg_stuff.ufo(0, randint(100,500), 5, 0))
+
+        return self

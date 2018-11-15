@@ -28,7 +28,7 @@ while True:
         if event.type == pygame.QUIT: sys.exit(0)
     
     scene.draw(screen)
-    scene.update()
+    scene = scene.update()
 
     #Flips the display buffers
     pygame.display.flip()
