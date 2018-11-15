@@ -57,9 +57,17 @@ class Level:
 
     def draw(self, screen):
         if self.flashtimer % 2 == 0:
-            screen.blit(self.arial.render(("Score: %d" % self.g_player.sprites()[0].score) , False, (255,255,255)), (100, 10))
+            score = self.arial.render(("Score: %d" % self.g_player.sprites()[0].score) , False, (255,255,255))
         else:
-            screen.blit(self.arial.render(("Score: %d" % self.g_player.sprites()[0].score) , False, (255,0,0)), (100, 10))
+            score = self.arial.render(("Score: %d" % self.g_player.sprites()[0].score) , False, (255,0,0))
+        
+        (w, h) = score.get_size()
+        score_border = pygame.Surface((w+20, h+20))
+        score_border.fill((50,50,50))
+        screen.blit(score_border, ((100-10),(10-10)))
+        #The 10 comes from dividing the 20 by 2
+        screen.blit(score, (100, 10))
+
         if self.flashtimer > 0:
             self.flashtimer = self.flashtimer - 1
 
