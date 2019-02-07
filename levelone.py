@@ -9,8 +9,13 @@ import hazards
 import collectables
 import background_things as bg_stuff
 
+import endscreen
+
 class Level:
     def __init__(self, s_width, s_height):
+        self.s_width = s_width
+        self.s_height = s_height
+
         self.g_floor = pygame.sprite.Group()
         self.g_wall = pygame.sprite.Group()
 
@@ -87,8 +92,11 @@ class Level:
             self.g_player.sprites()[0].collected_coin = False
 
         
-
         self.g_player.update(self.g_floor, self.g_projec)
+        
+        if len(self.g_player) == 0:
+            return endscreen.Endscreen(self.s_width, self.s_height)
+
         self.g_projec.update(self.g_player)
 
         self.g_coin.update(self.g_player)

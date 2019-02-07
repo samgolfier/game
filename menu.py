@@ -1,6 +1,8 @@
 import pygame
 import levelone
 
+
+#This is the menu that shows before the game starts
 class Menu:
     def __init__(self, s_width, s_height):
         fontfile = pygame.font.match_font('arial')
@@ -44,7 +46,3 @@ class Menu:
         else:
             self.start_bordercol = (50,50,50)
         return self
-
-
-
-        

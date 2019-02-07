@@ -21,6 +21,10 @@ class astro(pygame.sprite.Sprite):
         self.hp = 100
 
     def update(self, *args):
+        if self.hp <= 0:
+            self.kill()
+            return
+
         self.rect.y += self.speed_y
         self.rect.x += self.speed_x
         self.speed_y += 0.2
@@ -41,6 +45,5 @@ class astro(pygame.sprite.Sprite):
             self.speed_x = -abs(self.speed_x)
         elif keys[pygame.K_RIGHT]:
             self.speed_x = abs(self.speed_x)
-    
 
             

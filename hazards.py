@@ -36,7 +36,6 @@ class hazard(pygame.sprite.Sprite):
         self.rect.y = self.y - self.image.get_rect().height/2
     
     def oncollision(self, sprite):
-        sprite.hp-= 50
+        sprite.hp-= 20
         self.kill()
-        if sprite.hp <= 0:
-            sprite.kill()
+        

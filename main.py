@@ -3,6 +3,7 @@ import sys
 
 import levelone
 import menu
+import endscreen
 
 s_width = 800
 s_height = s_width
@@ -20,6 +21,7 @@ clock = pygame.time.Clock()
 
 #scene = levelone.Level(s_width, s_height)
 scene = menu.Menu(s_width, s_height)
+#scene = endscreen.Endscreen(s_width, s_height)
 
 while True:
     
